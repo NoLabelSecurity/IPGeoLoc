@@ -1,0 +1,26 @@
+# ------------------------------------------------------------
+# IPGeoLoc Batch Lookup List
+# Programmer: Brian Lorick
+# Date: 11/04/2025
+# Description:
+#   Example list of IP addresses for potential batch
+#   processing features (future functionality).
+# ------------------------------------------------------------
+
+# North America
+8.8.4.4
+24.48.0.1
+35.186.224.47
+
+# Europe
+80.156.86.78
+195.201.201.23
+
+# Asia-Pacific
+1.1.1.1
+210.138.184.1
+203.0.113.45
+
+# IPv6 Samples
+2606:4700:4700::1111
+2001:4860:4860::8844
