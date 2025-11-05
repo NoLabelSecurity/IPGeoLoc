@@ -1,4 +1,13 @@
-# VALID TESTS
+# ------------------------------------------------------------
+# IPGeoLoc Example IP Addresses
+# Programmer: Brian Lorick
+# Date: 11/04/2025
+# Description:
+#   List of valid, invalid, and edge case IP addresses
+#   used for automated and manual testing.
+# ------------------------------------------------------------
+
+# VALID PUBLIC IPs
 8.8.8.8
 1.1.1.1
 208.80.152.201
@@ -9,7 +18,7 @@
 2606:4700:4700::1111
 2001:4860:4860::8888
 
-# INVALID OR EDGE TESTS
+# INVALID OR EDGE CASES
 999.999.999.999
 1.1
 abc.def.ghi.jkl
