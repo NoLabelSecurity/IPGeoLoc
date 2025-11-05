@@ -1,0 +1,29 @@
+# ------------------------------------------------------------
+# GeoLocator Testing Notes
+# Programmer: Brian Lorick
+# Date: 11/04/2025
+# Description:
+#   Manual testing notes and reminders for GeoLocator.
+# ------------------------------------------------------------
+
+[GENERAL TEST STRATEGY]
+- Confirm that each IP test produces a clean, readable output.
+- Check for correct cleanup: the temp file geo_temp.json should be removed.
+- Verify that error messages are descriptive and user-friendly.
+- Use both OnlineGDB and local GCC environments for comparison.
+
+[MANUAL TEST IDEAS]
+- Run multiple IPs sequentially to confirm consistent behavior.
+- Temporarily disconnect from the internet to simulate network failure.
+- Make geo_temp.json read-only to trigger file access error.
+- Add debug print statements in GeoLocator.c to trace behavior.
+
+[LOG FILE REVIEW]
+- All results from automated tests are saved in ./tests/results/.
+- Each log file name corresponds to the IP address tested.
+- Review logs for formatting consistency (aligned labels, spacing, etc.).
+
+[TROUBLESHOOTING]
+- “Error: Failed to retrieve data.” → Internet connection or curl issue.
+- “Error: Could not open response file.” → File permission or directory issue.
+- “Error: No valid data returned.” → Invalid IP or API response error.
