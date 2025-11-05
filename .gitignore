@@ -1,55 +1,39 @@
-# Prerequisites
-*.d
+# ============================================================
+# IPGeoLoc - .gitignore
+# Author: Brian Lorick
+# Description:
+#   Files and directories to exclude from version control.
+# ============================================================
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
-
-# Linker output
-*.ilk
-*.map
-*.exp
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
+# Ignore compiled binaries
+/build/
 *.exe
 *.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+*.o
+*.obj
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Ignore test result logs
+/tests/results/
+*.log
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Ignore temporary or intermediate files
+geo_temp.json
+*.tmp
+*.bak
 
-# debug information files
-*.dwo
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore backup or auto-save files
+*~
+*.swp
+*.swo
+
+# End of .gitignore
