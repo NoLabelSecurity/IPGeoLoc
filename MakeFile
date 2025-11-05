@@ -1,0 +1,62 @@
+# ============================================================
+# IPGeoLoc - Makefile
+# Author: Brian Lorick
+# Date: November 2025
+# Description:
+#   Simple build automation script for compiling, cleaning,
+#   and testing the IPGeoLoc C program.
+# ============================================================
+
+# Compiler
+CC = gcc
+
+# Compiler flags
+CFLAGS = -Wall -Wextra -std=c11
+
+# Directories
+SRC_DIR = src
+BUILD_DIR = build
+TEST_DIR = tests
+DATA_DIR = data
+
+# Files
+TARGET = $(BUILD_DIR)/IPGeoLoc
+SRC = $(SRC_DIR)/IPGeoLoc.c
+
+# Default target: compile program
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+	@echo "✅ Build complete: $(TARGET)"
+
+# Run the program interactively
+run: $(TARGET)
+	@echo "-----------------------------------------"
+	@echo " Running IPGeoLoc"
+	@echo "-----------------------------------------"
+	@$(TARGET)
+
+# Run automated tests
+test: $(TARGET)
+	@chmod +x $(TEST_DIR)/run_tests.sh
+	@$(TEST_DIR)/run_tests.sh
+
+# Clean up build and test artifacts
+clean:
+	@echo "🧹 Cleaning project files..."
+	@rm -rf $(BUILD_DIR) $(TEST_DIR)/results
+	@find . -name "geo_temp.json" -delete
+	@echo "✅ Clean complete."
+
+# Help menu
+help:
+	@echo "Available make commands:"
+	@echo "  make            - Build IPGeoLoc"
+	@echo "  make run        - Run the program interactively"
+	@echo "  make test       - Execute automated tests"
+	@echo "  make clean      - Remove build outputs and logs"
+	@echo "  make help       - Show this help menu"
+
+# End of Makefile
