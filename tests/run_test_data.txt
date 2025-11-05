@@ -3,111 +3,87 @@
 # Programmer: Brian Lorick
 # Date: 11/04/2025
 # Description:
-#   Reference results for IP addresses used by run_tests.sh.
-#   These are expected output regions/countries based on the
-#   ipinfo.io API data. Used for comparison and validation.
+#   Expected outputs for IP addresses used in automated tests.
+#   Based on ipinfo.io API results for validation purposes.
 # ------------------------------------------------------------
 
 ============================================================
 SECTION 1: VALID TESTS (EXPECTED SUCCESS)
 ============================================================
 
-1. Google DNS (8.8.8.8)
-   Expected Output:
-       City: Mountain View
-       Region: California
-       Country: United States
-       Organization: Google LLC
-       Coordinates: 37.4056,-122.0775
+8.8.8.8 — Google DNS
+Expected:
+  City: Mountain View
+  Region: California
+  Country: United States
+  Organization: Google LLC
 
-2. Cloudflare DNS (1.1.1.1)
-   Expected Output:
-       City: Sydney
-       Region: New South Wales
-       Country: Australia
-       Organization: Cloudflare, Inc.
-       Coordinates: -33.8591,151.2002
+1.1.1.1 — Cloudflare DNS
+Expected:
+  City: Sydney
+  Region: New South Wales
+  Country: Australia
+  Organization: Cloudflare, Inc.
 
-3. Wikipedia Server (208.80.152.201)
-   Expected Output:
-       City: Ashburn
-       Region: Virginia
-       Country: United States
-       Organization: Wikimedia Foundation
-       Coordinates: 39.0438,-77.4874
+208.80.152.201 — Wikipedia
+Expected:
+  City: Ashburn
+  Region: Virginia
+  Country: United States
+  Organization: Wikimedia Foundation
 
-4. Facebook / Meta (157.240.22.35)
-   Expected Output:
-       City: Menlo Park
-       Region: California
-       Country: United States
-       Organization: Meta Platforms, Inc.
-       Coordinates: 37.4529,-122.1817
+157.240.22.35 — Facebook / Meta
+Expected:
+  City: Menlo Park
+  Region: California
+  Country: United States
+  Organization: Meta Platforms, Inc.
 
-5. Deutsche Telekom AG (80.156.86.78)
-   Expected Output:
-       City: Frankfurt am Main
-       Region: Hesse
-       Country: Germany
-       Organization: Deutsche Telekom AG
-       Coordinates: 50.1109,8.6821
+80.156.86.78 — Deutsche Telekom
+Expected:
+  City: Frankfurt am Main
+  Region: Hesse
+  Country: Germany
+  Organization: Deutsche Telekom AG
 
-6. Japan NTT Communications (210.138.184.1)
-   Expected Output:
-       City: Tokyo
-       Region: Tokyo
-       Country: Japan
-       Organization: NTT Communications Corporation
-       Coordinates: 35.6895,139.6917
+210.138.184.1 — Japan NTT
+Expected:
+  City: Tokyo
+  Region: Tokyo
+  Country: Japan
+  Organization: NTT Communications
 
-7. Videotron Canada (24.48.0.1)
-   Expected Output:
-       City: Montreal
-       Region: Quebec
-       Country: Canada
-       Organization: Le Groupe Videotron Ltee
-       Coordinates: 45.5019,-73.5674
+24.48.0.1 — Videotron Canada
+Expected:
+  City: Montreal
+  Region: Quebec
+  Country: Canada
+  Organization: Videotron
 
-8. Cloudflare IPv6 (2606:4700:4700::1111)
-   Expected Output:
-       City: Sydney
-       Region: New South Wales
-       Country: Australia
-       Organization: Cloudflare, Inc.
+2606:4700:4700::1111 — Cloudflare IPv6
+Expected:
+  City: Sydney
+  Region: New South Wales
+  Country: Australia
+  Organization: Cloudflare, Inc.
 
-9. Google IPv6 (2001:4860:4860::8888)
-   Expected Output:
-       City: Mountain View
-       Region: California
-       Country: United States
-       Organization: Google LLC
+2001:4860:4860::8888 — Google IPv6
+Expected:
+  City: Mountain View
+  Region: California
+  Country: United States
+  Organization: Google LLC
 
 ============================================================
-SECTION 2: INVALID OR EDGE CASES (EXPECTED ERROR)
+SECTION 2: INVALID OR EDGE CASES (EXPECTED ERRORS)
 ============================================================
 
-10. Invalid (999.999.999.999)
-    Expected Output:
-        Error: Invalid or unreachable IP address.
-
-11. Invalid format (1.1)
-    Expected Output:
-        Error: Invalid IP address input.
-
-12. Non-numeric (abc.def.ghi.jkl)
-    Expected Output:
-        Error: Invalid or unreachable IP address.
-
-13. Missing octet (192.168.1)
-    Expected Output:
-        Error: Invalid or unreachable IP address.
-
-14. Broadcast (255.255.255.255)
-    Expected Output:
-        Error: Invalid or unreachable IP address.
-
-15. Loopback (127.0.0.1)
-    Expected Output:
-        City: N/A
-        Region: N/A
-        Country: N/A
+999.999.999.999 — Invalid range → Expect error
+1.1 — Incomplete IP → Expect error
+abc.def.ghi.jkl — Non-numeric → Expect error
+192.168.1 — Missing octet → Expect error
+255.255.255.255 — Broadcast → Expect error
+127.0.0.1 — Localhost → Expect N/A values
+192.168.0.10 — Private network → Expect N/A values
+::1 — IPv6 localhost → Expect N/A values
+fc00::1 — Reserved IPv6 → Expect N/A values
